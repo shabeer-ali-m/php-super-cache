@@ -9,8 +9,8 @@
             "email": "shabeer.ali.m@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "version": "0.0.1",
+    "minimum-stability": "stable",
+    "version": "0.0.2",
     "require": {
         "php": ">=5.3.0"
     },
