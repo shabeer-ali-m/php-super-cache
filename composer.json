@@ -1,0 +1,21 @@
+{
+    "name": "php/super-cache",
+    "description": "Simple PHP cache mechanism which is 500X Faster Caching than Redis/Memcache/APC in PHP & HHVM",
+    "keywords": ["php", "php-super-cache", "super-cache", "cache", "php-cache", "lightweight", "caching", "powerful"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Shabeer Ali M",
+            "email": "shabeer.ali.m@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.0",
+    },
+    "autoload": {
+        "psr-0": {
+            "SuperCache": "src/"
+        }
+    }
+}
