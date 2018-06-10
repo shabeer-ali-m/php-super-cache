@@ -1,5 +1,5 @@
 {
-    "name": "php/super-cache",
+    "name": "smart-php/super-cache",
     "description": "Simple PHP cache mechanism which is 500X Faster Caching than Redis/Memcache/APC in PHP & HHVM",
     "keywords": ["php", "php-super-cache", "super-cache", "cache", "php-cache", "lightweight", "caching", "powerful"],
     "license": "MIT",
