@@ -97,10 +97,10 @@ class SuperCache
      */
     public static function cache($key)
     {
-        if (is_null(self::$instance)) {
-            self::$instance = new self($key);
+        if (is_null(self::$instance[$key])) {
+            self::$instance[$key] = new self($key);
         }
-        return self::$instance;
+        return self::$instance[$key];
     }
 
     /**
