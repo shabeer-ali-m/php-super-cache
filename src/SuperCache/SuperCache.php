@@ -97,7 +97,7 @@ class SuperCache
      */
     public static function cache($key)
     {
-        if (isset(self::$instance[$key])) {
+        if (!isset(self::$instance[$key])) {
             self::$instance[$key] = new self($key);
         }
         return self::$instance[$key];
