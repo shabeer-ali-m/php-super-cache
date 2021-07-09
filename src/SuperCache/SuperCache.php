@@ -43,6 +43,11 @@ class SuperCache
     static $static_path = 'tmp/';
 
     /**
+     * @var bolean
+     */
+    static $is_pretty = true;
+
+    /**
      * @var string
      */
     private $path;
@@ -104,6 +109,33 @@ class SuperCache
     }
 
     /**
+     * Set File Path
+     * @param  [sting] $path file path
+     */
+    public static function setPath($path)
+    {
+        self::$static_path = $path;
+    }
+
+    /**
+     * Get File Path
+     * @return  [sting] $path file path
+     */
+    public static function getPath()
+    {
+        return self::$static_path;
+    }
+
+    /**
+     *
+     * @param  [bolean] $flag
+     */
+    public static function setPretty($val)
+    {
+        self::$is_pretty = (boolean) $val;
+    }
+
+    /**
      * Saving cache
      * @param [mixed] $val Cache Value
      * @return SuperCache
@@ -116,6 +148,13 @@ class SuperCache
         }
 
         $val = var_export($val, true);
+
+        //is_pretty
+        if (!self::$is_pretty) {
+            $val = str_replace(["\n",",  '"," => "],["",",'","=>"], $val);
+        }
+
+
         // HHVM fails at __set_state, so just use object cast for now
         $val = str_replace('stdClass::__set_state', '(object)', $val);
         // Write to temp file first to ensure atomicity

@@ -29,8 +29,13 @@ echo sCache::cache('myKey')->get();
 By default the cache will save in `tmp` folder. Please make sure that the `tmp` folder have write access.
 You can set custom folder for cache
 ```php
+sCache::setPath('youfolder/tempfolder/');
+```
+or
+```php
 define('SuperCache_PATH','youfolder/tempfolder/');
 ```
+
 
 #### Advanced Options
 ##### Locking
