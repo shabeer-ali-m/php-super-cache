@@ -120,7 +120,9 @@ class SuperCache
         $val = str_replace('stdClass::__set_state', '(object)', $val);
         // Write to temp file first to ensure atomicity
         $tmp = $this->path . "$key." . uniqid('', true) . SuperCache::EXT;
-        file_put_contents($tmp, '<?php $val = ' . $val . ';', LOCK_EX);
+        $file = fopen($tmp, 'x');
+        fwrite ($file, '<?php $val=' . $val . ';');
+        fclose ($file);
         rename($tmp, $this->path . $key);
         return $this;
     }
