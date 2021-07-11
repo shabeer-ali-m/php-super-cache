@@ -73,5 +73,50 @@ sCache::cache('myKey')->destroy();
 sCache::cache('myKey')->clearAll();
 ```
 
+### Cache Your Class
+
+You can cache any class to super cache. To bind data you need to use trait class `State` by adding `use State`, or you can do via your custom set_state.
+
+```php
+use SuperCache\SuperCache as sCache;
+use SuperCache\State as State;
+
+sCache::setPath('youCacheLocation');
+
+Class MyClass 
+{
+    /**
+     * This trait class will bind data from cache to your class
+     */
+    use State;
+
+    private $firstName;
+
+    private $lastName;
+
+    public function setName($firstName, $lastName)
+    {
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+    }
+
+    public function getName()
+    {
+        return $this->firstName . " ". $this->lastName;
+    }
+}
+
+// Creating Object of your class
+$myObject = new MyClass;
+$myObject->setName("John", "Doe");
+
+// Saving your object in SuperCache
+sCache::cache('myObject')->set($myObject);
+
+// Retrieving your object from Cache 
+$cacheObject = sCache::cache('myObject')->get();
+echo $myObject->getName();
+```
+
 ## License
 The MIT License (MIT). Please see [License File](LICENSE) for more information.
