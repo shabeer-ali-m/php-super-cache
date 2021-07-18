@@ -88,7 +88,7 @@ class SuperCache
     }
 
     /**
-     * attrSave Save Atributes
+     * attrSave Save attributes
      */
     private function attrSave()
     {
@@ -269,7 +269,7 @@ class SuperCache
     }
 
     /**
-     * destroy Destory a specific key
+     * destroy Destroy a specific key
      */
     public function destroy()
     {
