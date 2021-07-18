@@ -1,5 +1,5 @@
 # php-super-cache
-Simple PHP cache mechanism which is 200X Faster Caching than other PHP cache mechanisaam like Redis/Memcache/APC in PHP &amp; HHVM. SuperCache use normal file system to store the values. This method is faster than Redis/ Memcache because all those serialize and unserialize the objects.
+Simple PHP cache mechanism which provides 200X Faster Caching than other PHP cache mechanisms like Redis/Memcache/APC in PHP &amp; HHVM. SuperCache uses the normal file system to store values. This method is faster than Redis/Memcache because all those serialize and unserialize objects.
 
 [![GitHub tag](https://img.shields.io/github/tag/shabeer-ali-m/php-super-cache.svg?style=flat-square)](https://github.com/shabeer-ali-m/php-super-cache/releases)
 
@@ -26,8 +26,8 @@ echo sCache::cache('myKey')->get();
 ```
 
 ### Cache Folder 
-By default the cache will save in `tmp` folder. Please make sure that the `tmp` folder have write access.
-You can set custom folder for cache
+By default the cache will save in the `tmp` folder. Please make sure that the `tmp` folder has write access.
+You can set a custom folder for the cache:
 ```php
 sCache::setPath('youfolder/tempfolder/');
 ```
@@ -40,7 +40,7 @@ define('SuperCache_PATH','youfolder/tempfolder/');
 #### Advanced Options
 ##### Locking
 
-Lock your data to readonly so that the data wont overwrite.
+Lock your data to readonly so that the data won't be overwritten.
 ```php
 sCache::cache('myKey')->set('my_value')->lock();
 //setting new value
@@ -60,7 +60,7 @@ sCache::cache('myKey')->set('my_value')->options([
     'custom'    =>  'your customer attribute value'
 ]);
 
-//isValid (To check for a valid key or to check is it expired or not)
+//isValid (To check for a valid key or to check whether it has expired or not)
 sCache::cache('myKey')->isValid(); //true or false
 
 //To get all option values
@@ -75,7 +75,7 @@ sCache::cache('myKey')->clearAll();
 
 ### Cache Your Class
 
-You can cache any class to super cache. To bind data you need to use trait class `State` by adding `use State`, or you can do via your custom set_state.
+You can cache any class to super cache. To bind data you need to use the trait class `State` by adding `use State`, or you can do it via your custom set_state.
 
 ```php
 use SuperCache\SuperCache as sCache;
